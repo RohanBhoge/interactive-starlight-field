@@ -1,0 +1,62 @@
+/* --- Main Container --- */
+/* This sets up the full-screen, immersive environment. */
+.starlight-field {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    /* The gradient background provides depth. */
+    background: linear-gradient(180deg, #0a192f 0%, #112240 100%);
+    /* Hides the default browser cursor for a more immersive experience. */
+    cursor: none;
+}
+
+/* --- Stars --- */
+.star {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 50%;
+    /* The twinkle animation creates the shimmering effect. */
+    animation: twinkle 5s infinite ease-in-out;
+}
+
+/* Keyframes for the star twinkling animation. */
+@keyframes twinkle {
+    0%, 100% {
+        transform: scale(1);
+        opacity: var(--start-opacity, 0.5);
+    }
+    50% {
+        transform: scale(0.8);
+        opacity: 0.2;
+    }
+}
+
+/* --- Aurora Trail Particles --- */
+.aurora-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    /* Prevents the particles from interfering with mouse events. */
+    pointer-events: none;
+    /* Center the particle on the cursor's position. */
+    transform: translate(-50%, -50%);
+    /* The animation handles the fading and shrinking effect. */
+    animation: aurora-trail 1s forwards ease-out;
+}
+
+/* Keyframes for the aurora trail fade-out and shrink animation. */
+@keyframes aurora-trail {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+
